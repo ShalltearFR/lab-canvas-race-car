@@ -1,6 +1,3 @@
-//const ctx = document.querySelector('canvas').getContext('2d');
-
-
 class Car {
   constructor() {
     const img = document.createElement('img');
@@ -15,7 +12,6 @@ class Car {
       this.x = 450;
       this.y = 1200;
       
-      //this.draw();
     }
     img.src = "../images/car.png";
   }
@@ -32,21 +28,11 @@ class Car {
       this.x -= 50
       this.draw()
     }
-    // TODO
   }
   moveRight() {
-    // TODO
     if (this.x <= 800){
       this.x += 50
       this.draw()
     }
   }
 }
-
-//const newCar = new Car();
-
-
-
-
-//const carglass = new Car()
-//carglass.draw()
