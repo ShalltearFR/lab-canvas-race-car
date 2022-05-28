@@ -28,10 +28,19 @@ class Car {
   }
 
   moveLeft() {
+    if (this.x >= 100){
+      this.x -= 50
+      this.draw()
+    }
     // TODO
   }
   moveRight() {
     // TODO
+    if (this.x <= 800){
+      this.x += 50
+      this.draw()
+
+    }
   }
 }
 
