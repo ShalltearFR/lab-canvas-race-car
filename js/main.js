@@ -1,7 +1,8 @@
 let car
-let obstacles;
+let obstacles = [];
 let gameover;
 let points;
+let obstacleSpeed = 128
 
 const ctx = document.querySelector('canvas').getContext('2d');
 const W = ctx.canvas.width;
@@ -37,7 +38,19 @@ function draw() {
   //
   // Iteration #4: obstacles
   //
+  
+  obstacles.forEach((el)=>{
+    if (!(frames % 7)){
+    el.y += 50
+  }
+    el.draw()
+  })
+  
 
+  if (obstacles.length >= 5){
+    obstacles.shift()
+  }
+  
   // TODO
 
   //
@@ -64,7 +77,11 @@ let raf;
 let frames = 0;
 function animLoop() {
   frames++;
-
+//console.log(frames)
+    if (!(frames % obstacleSpeed)){
+      const obstacle = new Obstacle()
+      obstacles.push(obstacle)
+    }
   draw();
 
   if (!gameover) {

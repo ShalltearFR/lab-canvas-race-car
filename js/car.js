@@ -13,7 +13,7 @@ class Car {
       this.w = 100;
       this.h = this.w / imgRatio;
       this.x = 450;
-      this.y = 400;
+      this.y = 1200;
       
       //this.draw();
     }
@@ -39,7 +39,6 @@ class Car {
     if (this.x <= 800){
       this.x += 50
       this.draw()
-
     }
   }
 }
