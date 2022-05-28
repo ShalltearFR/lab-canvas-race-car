@@ -1,4 +1,4 @@
-let car;
+let car
 let obstacles;
 let gameover;
 let points;
@@ -11,12 +11,26 @@ function draw() {
   //
   // Iteration 1: road drawing
   //
+  ctx.fillStyle = "#808080"
+  ctx.fillRect(0,0,W,H)
 
-  // TODO
+  ctx.fillStyle = "#ffffff"
+  let lineSpace = 25
+  for (let i = 0; i < 15; i++){
+    ctx.fillRect((W /2) - 10,lineSpace, 20, 75)
+    lineSpace+= 120
+  }
 
+  ctx.fillStyle = "#ffffff"
+  ctx.fillRect(25,0,25,H)
+
+  ctx.fillRect(W -50,0,25,H)
+  
   //
   // Iteration 2: car drawing
   //
+
+  car.draw()
 
   // TODO
 
@@ -61,10 +75,11 @@ function animLoop() {
 function startGame() {
   if (raf) {
     cancelAnimationFrame(raf);
+    
   }
 
   // TODO
-
+  car = new Car();
   animLoop();
 }
 
@@ -74,3 +89,16 @@ document.getElementById("start-button").onclick = function() {
 
 // auto-start
 startGame();
+
+
+document.addEventListener("keydown", event => {
+
+  if (event.key === "ArrowLeft"){
+    car.moveLeft()
+  }
+
+  if (event.key === "ArrowRight"){
+    car.moveRight()
+  }
+  console.log(event)
+})
